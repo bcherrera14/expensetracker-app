@@ -2,9 +2,9 @@
 
 *This app keeps track of your expenses.*
 
-Try it [here](https://bcherrera14.github.io/calculator-app/)
+Try it [here](https://expensetracker-app-herrera.herokuapp.com/)
 
-<!-- <img src="./Calculator.PNG" alt="alt text" width="250px"> -->
+<img src="./ExpenseTracker.PNG" alt="alt text" width="700px">
 
 ## Summary
 

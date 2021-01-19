@@ -1,8 +1,11 @@
 import React from 'react';
 import Table from 'react-bootstrap/Table';
-import TableBody from './TableBody';
+import ExpenseItem from './ExpenseItem';
 
 function ExpenseTable({ expenseData, handleDeleteButton }) {
+	const expenseItemComponents = expenseData.map((expense) => (
+		<ExpenseItem expense={expense} key={expense.id} handleDeleteButton={handleDeleteButton} />
+	));
 	return (
 		<div className="card">
 			<Table className="table-borderless">
@@ -15,7 +18,7 @@ function ExpenseTable({ expenseData, handleDeleteButton }) {
 						<th className="delete">Delete</th>
 					</tr>
 				</thead>
-				<TableBody expenseData={expenseData} handleDeleteButton={handleDeleteButton} />
+				<tbody>{expenseItemComponents}</tbody>
 			</Table>
 		</div>
 	);

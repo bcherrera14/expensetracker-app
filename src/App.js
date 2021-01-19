@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import ExpenseForm from './components/ExpenseForm';
 import ExpenseTable from './components/ExpenseTable';
-import expenseData from './components/expenseData';
+import expenseData from './expenseData';
 
 class App extends React.Component {
 	constructor() {

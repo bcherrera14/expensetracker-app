@@ -25,8 +25,8 @@ class FormInputs extends React.Component {
 					<Col>
 						<Form.Label>Amout:</Form.Label>
 						<div className="input-container">
-							<Form.Control id="amount" autocomplete="off" />
-							<span class="unit">$</span>
+							<Form.Control id="amount" autoComplete="off" />
+							<span className="unit">$</span>
 						</div>
 					</Col>
 				</Form.Row>

@@ -9,7 +9,10 @@ class ExpenseTable extends React.Component {
 			<div className="card">
 				<Table className="table-borderless">
 					<TableHeader />
-					<TableBody />
+					<TableBody
+						expenseData={this.props.expenseData}
+						handleDeleteButton={this.props.handleDeleteButton}
+					/>
 				</Table>
 			</div>
 		);

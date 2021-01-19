@@ -34,6 +34,8 @@ class FormInputs extends React.Component {
 	}
 
 	render() {
+		const isFormComplete =
+			this.state.description && this.state.merchantName && this.state.amount && this.state.date;
 		return (
 			<Form id="myForm">
 				<Form.Row>
@@ -78,13 +80,7 @@ class FormInputs extends React.Component {
 				<Button
 					variant="primary"
 					id="submitButton"
-					disabled={
-						this.state.description && this.state.merchantName && this.state.amount && this.state.date ? (
-							false
-						) : (
-							true
-						)
-					}
+					disabled={isFormComplete ? false : true}
 					onClick={() => {
 						const newExpense = this.state;
 						this.props.handleSubmitButton(newExpense, this.resetState);

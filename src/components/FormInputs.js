@@ -64,7 +64,13 @@ class FormInputs extends React.Component {
 					<Col>
 						<Form.Label>Amount:</Form.Label>
 						<div className="input-container">
-							<Form.Control id="amount" name="amount" autoComplete="off" onChange={this.handleChange} />
+							<Form.Control
+								id="amount"
+								name="amount"
+								type="number"
+								autoComplete="off"
+								onChange={this.handleChange}
+							/>
 							<span className="unit">$</span>
 						</div>
 					</Col>

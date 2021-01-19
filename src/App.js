@@ -9,6 +9,7 @@ class App extends React.Component {
 		super();
 		this.state = { expenseData };
 		this.handleDeleteButton = this.handleDeleteButton.bind(this);
+		this.handleSubmitButton = this.handleSubmitButton.bind(this);
 	}
 
 	handleDeleteButton(id) {
@@ -20,10 +21,21 @@ class App extends React.Component {
 		});
 	}
 
+	handleSubmitButton(newExpense) {
+		this.setState((prevState) => {
+			const id = prevState.expenseData.length + 1;
+			newExpense.id = id;
+			const updatedExpenseData = [ ...prevState.expenseData, newExpense ];
+			return {
+				expenseData: updatedExpenseData
+			};
+		});
+	}
+
 	render() {
 		return (
 			<div className="container">
-				<ExpenseForm />
+				<ExpenseForm expenseData={this.state.expenseData} handleSubmitButton={this.handleSubmitButton} />
 				<ExpenseTable expenseData={this.state.expenseData} handleDeleteButton={this.handleDeleteButton} />
 			</div>
 		);

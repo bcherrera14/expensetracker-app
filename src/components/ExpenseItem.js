@@ -5,13 +5,14 @@ class ExpenseItem extends React.Component {
 		console.log('DELETE');
 	}
 	render() {
+		const date = this.props.expense.date.split('-');
 		return (
 			<tr>
+				<td>{date[1] + '/' + date[2] + '/' + date[0]}</td>
 				<td>{this.props.expense.description}</td>
 				<td>{this.props.expense.merchantName}</td>
-				<td>{this.props.expense.date}</td>
 				<td>
-					{parseInt(this.props.expense.amount).toLocaleString('en-US', {
+					{parseFloat(this.props.expense.amount).toLocaleString('en-US', {
 						style: 'currency',
 						currency: 'USD'
 					})}

@@ -5,9 +5,9 @@ class TableHeader extends React.Component {
 		return (
 			<thead>
 				<tr>
+					<th>Date</th>
 					<th>Description</th>
 					<th>Merchant Name</th>
-					<th>Date</th>
 					<th>Amount</th>
 					<th className="delete">Delete</th>
 				</tr>

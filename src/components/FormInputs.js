@@ -23,7 +23,7 @@ class FormInputs extends React.Component {
 
 	render() {
 		return (
-			<Form>
+			<Form id="myForm">
 				<Form.Row>
 					<Col>
 						<Form.Label>Description:</Form.Label>

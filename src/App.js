@@ -2,12 +2,11 @@ import React from 'react';
 import './App.css';
 import ExpenseForm from './components/ExpenseForm';
 import ExpenseTable from './components/ExpenseTable';
-import expenseData from './expenseData';
 
 class App extends React.Component {
 	constructor() {
 		super();
-		this.state = { expenseData };
+		this.state = { expenseData: [] };
 		this.handleDeleteButton = this.handleDeleteButton.bind(this);
 		this.handleSubmitButton = this.handleSubmitButton.bind(this);
 	}
@@ -30,6 +29,9 @@ class App extends React.Component {
 				expenseData: updatedExpenseData
 			};
 		});
+		const formInputs = document.querySelectorAll('input');
+		formInputs.forEach((input) => (input.value = ''));
+		return false;
 	}
 
 	render() {

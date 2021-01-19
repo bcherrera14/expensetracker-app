@@ -1,22 +1,24 @@
 import React from 'react';
 import Table from 'react-bootstrap/Table';
-import TableHeader from './TableHeader';
 import TableBody from './TableBody';
 
-class ExpenseTable extends React.Component {
-	render() {
-		return (
-			<div className="card">
-				<Table className="table-borderless">
-					<TableHeader />
-					<TableBody
-						expenseData={this.props.expenseData}
-						handleDeleteButton={this.props.handleDeleteButton}
-					/>
-				</Table>
-			</div>
-		);
-	}
+function ExpenseTable({ expenseData, handleDeleteButton }) {
+	return (
+		<div className="card">
+			<Table className="table-borderless">
+				<thead>
+					<tr>
+						<th>Date</th>
+						<th>Description</th>
+						<th>Merchant Name</th>
+						<th>Amount</th>
+						<th className="delete">Delete</th>
+					</tr>
+				</thead>
+				<TableBody expenseData={expenseData} handleDeleteButton={handleDeleteButton} />
+			</Table>
+		</div>
+	);
 }
 
 export default ExpenseTable;

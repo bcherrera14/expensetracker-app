@@ -20,11 +20,7 @@ class App extends React.Component {
 		});
 	}
 
-	handleSubmitButton(newExpense) {
-		if (!newExpense.description || !newExpense.merchantName || !newExpense.date || !newExpense.amount) {
-			alert('The form is incomplete.');
-			return false;
-		}
+	handleSubmitButton(newExpense, resetState) {
 		this.setState((prevState) => {
 			const id = prevState.expenseData.length + 1;
 			newExpense.id = id;
@@ -35,7 +31,7 @@ class App extends React.Component {
 		});
 		const formInputs = document.querySelectorAll('input');
 		formInputs.forEach((input) => (input.value = ''));
-		return false;
+		resetState();
 	}
 
 	render() {

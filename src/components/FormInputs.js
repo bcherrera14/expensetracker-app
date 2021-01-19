@@ -7,18 +7,30 @@ class FormInputs extends React.Component {
 	constructor() {
 		super();
 		this.state = {
+			id: '',
 			description: '',
 			merchantName: '',
 			amount: '',
 			date: ''
 		};
 		this.handleChange = this.handleChange.bind(this);
+		this.resetState = this.resetState.bind(this);
 	}
+
+	resetState() {
+		this.setState({
+			id: '',
+			description: '',
+			merchantName: '',
+			amount: '',
+			date: ''
+		});
+	}
+
 	handleChange(event) {
 		this.setState({
 			[event.target.name]: event.target.value
 		});
-		console.log(this.state);
 	}
 
 	render() {
@@ -29,7 +41,7 @@ class FormInputs extends React.Component {
 						<Form.Label>Description:</Form.Label>
 						<Form.Control
 							name="description"
-							placeholder="Ex: Shoes"
+							placeholder="Ex: Coffee"
 							autoComplete="off"
 							onChange={this.handleChange}
 						/>
@@ -38,7 +50,7 @@ class FormInputs extends React.Component {
 						<Form.Label>Merchant Name:</Form.Label>
 						<Form.Control
 							name="merchantName"
-							placeholder="Ex: Nordstrom"
+							placeholder="Ex: Starbucks"
 							autoComplete="off"
 							onChange={this.handleChange}
 						/>
@@ -59,9 +71,17 @@ class FormInputs extends React.Component {
 				</Form.Row>
 				<Button
 					variant="primary"
+					id="submitButton"
+					disabled={
+						this.state.description && this.state.merchantName && this.state.amount && this.state.date ? (
+							false
+						) : (
+							true
+						)
+					}
 					onClick={() => {
-						this.props.handleSubmitButton(this.state);
-						// console.log(this.props);
+						const newExpense = this.state;
+						this.props.handleSubmitButton(newExpense, this.resetState);
 					}}
 				>
 					Submit

@@ -21,6 +21,10 @@ class App extends React.Component {
 	}
 
 	handleSubmitButton(newExpense) {
+		if (!newExpense.description || !newExpense.merchantName || !newExpense.date || !newExpense.amount) {
+			alert('The form is incomplete.');
+			return false;
+		}
 		this.setState((prevState) => {
 			const id = prevState.expenseData.length + 1;
 			newExpense.id = id;

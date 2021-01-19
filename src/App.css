@@ -21,8 +21,8 @@ body {
 	width: 100%;
 }
 
-Form {
-	width: 600px;
+form {
+	/* width: 600px; */
 	display: flex;
 	flex-direction: column;
 }

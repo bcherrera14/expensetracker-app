@@ -1,10 +1,15 @@
 import React from 'react';
 
 function ExpenseItem({ expense, handleDeleteButton }) {
-	const date = expense.date.split('-');
+	const newDate = expense.date.split('-');
+	const date = {
+		month: newDate[1],
+		day: newDate[2],
+		year: newDate[0]
+	};
 	return (
 		<tr>
-			<td>{date[1] + '/' + date[2] + '/' + date[0]}</td>
+			<td>{date.month + '/' + date.day + '/' + date.year}</td>
 			<td>{expense.description}</td>
 			<td>{expense.merchantName}</td>
 			<td>

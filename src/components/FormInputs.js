@@ -14,10 +14,10 @@ class FormInputs extends React.Component {
 			date: ''
 		};
 		this.handleChange = this.handleChange.bind(this);
-		this.resetState = this.resetState.bind(this);
+		this.clearFormData = this.clearFormData.bind(this);
 	}
 
-	resetState() {
+	clearFormData() {
 		this.setState({
 			id: '',
 			description: '',
@@ -31,6 +31,13 @@ class FormInputs extends React.Component {
 		this.setState({
 			[event.target.name]: event.target.value
 		});
+	}
+
+	handleClick() {
+		const newExpense = this.state;
+		this.props.handleSubmitButton(newExpense, this.clearFormData);
+		const formInputs = document.querySelectorAll('input');
+		formInputs.forEach((input) => (input.value = ''));
 	}
 
 	render() {
@@ -82,8 +89,7 @@ class FormInputs extends React.Component {
 					id="submitButton"
 					disabled={isFormComplete ? false : true}
 					onClick={() => {
-						const newExpense = this.state;
-						this.props.handleSubmitButton(newExpense, this.resetState);
+						this.handleClick();
 					}}
 				>
 					Submit

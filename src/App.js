@@ -31,7 +31,7 @@ class App extends React.Component {
 		});
 	}
 
-	handleSubmitButton(newExpense, resetState) {
+	handleSubmitButton(newExpense, clearFormData) {
 		this.setState((prevState) => {
 			const id = prevState.expenseData.length + 1;
 			newExpense.id = id;
@@ -41,9 +41,7 @@ class App extends React.Component {
 				expenseData: updatedExpenseData
 			};
 		});
-		const formInputs = document.querySelectorAll('input');
-		formInputs.forEach((input) => (input.value = ''));
-		resetState();
+		clearFormData();
 	}
 
 	render() {

@@ -25,6 +25,8 @@ class FormInputs extends React.Component {
 			amount: '',
 			date: ''
 		});
+		const formInputs = document.querySelectorAll('input');
+		formInputs.forEach((input) => (input.value = ''));
 	}
 
 	handleChange(event) {
@@ -33,11 +35,9 @@ class FormInputs extends React.Component {
 		});
 	}
 
-	handleClick() {
-		const newExpense = this.state;
-		this.props.handleSubmitButton(newExpense, this.clearFormData);
-		const formInputs = document.querySelectorAll('input');
-		formInputs.forEach((input) => (input.value = ''));
+	handleClick(newExpense) {
+		this.props.handleSubmitButton(newExpense);
+		this.clearFormData();
 	}
 
 	render() {
@@ -88,9 +88,7 @@ class FormInputs extends React.Component {
 					variant="primary"
 					id="submitButton"
 					disabled={isFormComplete ? false : true}
-					onClick={() => {
-						this.handleClick();
-					}}
+					onClick={() => this.handleClick(this.state)}
 				>
 					Submit
 				</Button>

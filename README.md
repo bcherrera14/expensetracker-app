@@ -4,7 +4,7 @@
 
 Try it [here](https://expensetracker-app-herrera.herokuapp.com/)
 
-<img src="./ExpenseTracker.PNG" alt="alt text" width="700px">
+<img src="./expensetracker_v2.gif" alt="alt text" width="700px">
 
 ## Summary
 
